@@ -1,12 +1,22 @@
-﻿var theForm = $("#theForm");
-theForm.hide();
+﻿$(document).ready(function () {
+    var theForm = $("#theForm");
+    theForm.hide();
 
-var button = $("#buyButton");
-button.on("click", function () {
-    console.log("Comprando um item");
-});
+    var button = $("#buyButton");
+    button.on("click", function () {
+        console.log("Comprando um item");
+    });
 
-var productInfo = $(".product-props li");
-productInfo.on("click", function () {
-    console.log("You clicked on " + $(this).text());
+    var productInfo = $(".product-props li");
+    productInfo.on("click", function () {
+        console.log("You clicked on " + $(this).text());
+    });
+
+    var $loginToggle = $("#loginToggle");
+    var $popupForm = $(".popup-form");
+
+    $loginToggle.on("click", function () {
+        $popupForm.fadetoggle(500);
+    });
+
 });
