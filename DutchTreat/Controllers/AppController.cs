@@ -13,6 +13,7 @@ namespace DutchTreat.Controllers
 		{
 			return View();
 		}
+
 		public IActionResult Contact()
 		{
 			ViewBag.Title = "Contact Us";
