@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using DutchTreat.Services;
+using DutchTreat.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DutchTreat
 {
@@ -16,6 +18,11 @@ namespace DutchTreat
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DutchContext>(cfg =>
+            {
+                cfg.UseSqlServer("");
+            });
+
 			services.AddMvc();
 			services.AddTransient<IMailService, NullMailService>();
 			// support for real mail service
