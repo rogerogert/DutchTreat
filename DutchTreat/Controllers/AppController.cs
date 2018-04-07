@@ -15,7 +15,7 @@ namespace DutchTreat.Controllers
         private readonly IMailService _mailService;
         private readonly DutchContext _context;
 
-        public AppController(IMailService mailService DutchContext context)
+        public AppController(IMailService mailService, DutchContext context)
         {
             _mailService = mailService;
             _context = context;
