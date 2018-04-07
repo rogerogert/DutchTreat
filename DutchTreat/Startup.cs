@@ -34,7 +34,9 @@ namespace DutchTreat
 			services.AddTransient<IMailService, NullMailService>();
 
             services.AddTransient<DutchSeeder>();
-			// support for real mail service
+
+            services.AddScoped<IDutchRepository, DutchRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
