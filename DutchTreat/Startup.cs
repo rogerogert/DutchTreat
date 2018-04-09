@@ -10,6 +10,7 @@ using DutchTreat.Services;
 using DutchTreat.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
 namespace DutchTreat
 {
@@ -30,7 +31,9 @@ namespace DutchTreat
                 cfg.UseSqlServer(_config.GetConnectionString("DutchConnectionString"));
             });
 
-			services.AddMvc();
+			services.AddMvc()
+                    .AddJsonOptions(opt=>opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+
 			services.AddTransient<IMailService, NullMailService>();
 
             services.AddTransient<DutchSeeder>();
